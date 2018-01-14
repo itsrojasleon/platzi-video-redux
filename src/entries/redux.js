@@ -30,6 +30,7 @@ const initialState = [
 const reducer = (state, action) => {
   switch(action.type) {
     case 'ADD_SONG':
+    // [...state, action.payload]
       return state.concat(action.payload)
     default:
       return state
@@ -42,11 +43,20 @@ const store = createStore(
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 )
 
-const container = document.getElementById('playlist')
-const playlist = store.getState()
+function render() {
+  const container = document.getElementById('playlist')
+  const playlist = store.getState()
+  container.innerHTML = ''
+  playlist.map(item => {
+    const template = document.createElement('p')
+    template.textContent = item.title
+    container.appendChild(template)
+  })
+}
+render()
 
-playlist.map(item => {
-  const template = document.createElement('p')
-  template.textContent = item.title
-  container.appendChild(template)
-})
+function handleChange() {
+  render()
+}
+
+store.subscribe(handleChange)
