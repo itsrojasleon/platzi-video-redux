@@ -6,7 +6,7 @@ function HomeLayout(props) {
     <section className="HomeLayout">
       {props.children}
     </section>
-  )
+  );
 }
 
 export default HomeLayout

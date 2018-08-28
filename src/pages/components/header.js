@@ -21,12 +21,12 @@ class Header extends Component {
               </NavLink>
             </li>
             <li>
-              <NavLink to="/contacto" activeClassName="is-selected">
+              <NavLink to="/contact" activeClassName="is-selected">
                 Contacto
               </NavLink>
             </li>
             <li>
-              <NavLink to="/perfil" activeClassName="is-selected">
+              <NavLink to="/profile" activeClassName="is-selected">
                 Perfil
               </NavLink>
             </li>

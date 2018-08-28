@@ -9,7 +9,7 @@ import VideoPlayer from '../../player/containers/video-player';
 
 import { connect } from 'react-redux'
 
-class Home extends Component {
+class Videos extends Component {
   state = {
     modalVisible: false,
   }
@@ -61,4 +61,4 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps, )(Home)
+export default connect(mapStateToProps, )(Videos)

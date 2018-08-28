@@ -1,9 +1,11 @@
 import React, { Fragment } from 'react';
 import { hydrate } from 'react-dom';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import Header from '../pages/components/header';
-import Home from '../pages/containers/home';
+import Videos from '../pages/containers/videos';
+import Home from '../pages/components/home';
+import Contact from '../pages/components/contact';
 import data from '../api.json';
 
 import { createStore } from 'redux';
@@ -33,7 +35,9 @@ hydrate(
     <Provider store={store}>
       <Fragment>
         <Header />
-        <Home />
+        <Route exact path="/" component={Home} />
+        <Route path="/videos" component={Videos} />
+        <Route path="/contact" component={Contact} />
       </Fragment>
     </Provider>
   </BrowserRouter>,

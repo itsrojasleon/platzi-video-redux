@@ -1,0 +1,13 @@
+.personal-site-container {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.personal-site {
+  text-decoration: none;
+  color: white;
+}
+.personal-site:hover {
+  text-decoration: underline;
+}
