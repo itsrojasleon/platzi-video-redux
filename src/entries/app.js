@@ -1,19 +1,21 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { hydrate } from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
+
+import Header from '../pages/components/header';
 import Home from '../pages/containers/home';
 import data from '../api.json';
 
-import { createStore } from 'redux'
-import { Provider } from 'react-redux'
-import reducer from '../reducers/data'
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+import reducer from '../reducers/data';
 
 const initialState = {
   data: {
     ...data
   },
   search: []
-}
+};
 
 const store = createStore(
   reducer,
@@ -29,7 +31,10 @@ hydrate(
     basename="/"
   >
     <Provider store={store}>
-      <Home />
+      <Fragment>
+        <Header />
+        <Home />
+      </Fragment>
     </Provider>
   </BrowserRouter>,
   homeContainer
