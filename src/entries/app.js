@@ -1,5 +1,6 @@
 import React from 'react';
 import { hydrate } from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
 import Home from '../pages/containers/home';
 import data from '../api.json';
 
@@ -24,8 +25,12 @@ console.log(store.getState());
 const homeContainer = document.getElementById('home-container')
 
 hydrate(
-  <Provider store={store}>
-    <Home />
-  </Provider>,
+  <BrowserRouter 
+    basename="/"
+  >
+    <Provider store={store}>
+      <Home />
+    </Provider>
+  </BrowserRouter>,
   homeContainer
 )
