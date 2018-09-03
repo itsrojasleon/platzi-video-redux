@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import { hydrate } from 'react-dom';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 
 import Header from '../pages/components/header';
 import Videos from '../pages/containers/videos';
@@ -40,6 +40,7 @@ hydrate(
           <Route exact path="/" component={Home} />
           <Route path="/videos" component={Videos} />
           <Route path="/contact" component={Contact} />
+          <Redirect from="/v" to="/videos" />
           <Route path="*" render={() => <NotFound />} />
         </Switch>
       </Fragment>
