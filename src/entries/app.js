@@ -6,6 +6,7 @@ import Header from '../pages/components/header';
 import Videos from '../pages/containers/videos';
 import Home from '../pages/components/home';
 import Contact from '../pages/components/contact';
+import NotFound from '../pages/components/not-found';
 import data from '../api.json';
 
 import { createStore } from 'redux';
@@ -35,9 +36,12 @@ hydrate(
     <Provider store={store}>
       <Fragment>
         <Header />
-        <Route exact path="/" component={Home} />
-        <Route path="/videos" component={Videos} />
-        <Route path="/contact" component={Contact} />
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route path="/videos" component={Videos} />
+          <Route path="/contact" component={Contact} />
+          <Route path="*" render={() => <NotFound />} />
+        </Switch>
       </Fragment>
     </Provider>
   </BrowserRouter>,
