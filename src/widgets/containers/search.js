@@ -4,7 +4,8 @@ import { connect } from 'react-redux'
 
 class SearchContainer extends Component {
   state = {
-    value: 'Luis Fonsi'
+    value: '',
+    propmt: false,
   }
   handleSubmit = event => {
     event.preventDefault();
@@ -22,7 +23,8 @@ class SearchContainer extends Component {
   }
   handleInputChange = event => {
     this.setState({
-      value: event.target.value.replace(' ', '-')
+      value: event.target.value.replace(' ', '-'),
+      propmt: !!(event.target.value.length),
     })
   }
   render() {
@@ -32,6 +34,7 @@ class SearchContainer extends Component {
         handleSubmit={this.handleSubmit}
         handleChange={this.handleInputChange}
         value={this.state.value}
+        propmt={this.state.propmt}
       />
     )
   }
