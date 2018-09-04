@@ -5,15 +5,16 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
   entry: {
-    "home": path.resolve(__dirname, 'src/pages/containers/home.js'),
+    "home": path.resolve(__dirname, 'src/entries/app.js'),
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'ssr/[name].js',
-    libraryTarget: 'commonjs2'
+    libraryTarget: 'commonjs2',
+    chunkFilename: 'js/[id].[chunkhash].js',
+    publicPath: '/',
   },
   target: 'node',
-
   module: {
     rules: [
       {
