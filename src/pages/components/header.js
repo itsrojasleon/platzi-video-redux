@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './header.css';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { WithRouter } from 'react-router';
 import logo from '../../../images/logo.png';
 

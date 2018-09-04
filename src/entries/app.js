@@ -1,50 +1,14 @@
-import React, { Fragment } from 'react';
-import { hydrate } from 'react-dom';
-import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
-
-import Header from '../pages/components/header';
-import Videos from '../pages/containers/videos';
-import Home from '../pages/components/home';
-import Contact from '../pages/components/contact';
-import NotFound from '../pages/components/not-found';
-import data from '../api.json';
-
-import { createStore } from 'redux';
-import { Provider } from 'react-redux';
-import reducer from '../reducers/data';
-
-const initialState = {
-  data: {
-    ...data
-  },
-  search: []
-};
-
-const store = createStore(
-  reducer,
-  initialState,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-)
-console.log(store.getState());
+import React from 'react';
+import { render } from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
+import App from '../pages/containers/app';
 
 const homeContainer = document.getElementById('home-container')
 
-hydrate(
+render(
   <BrowserRouter 
-    basename="/"
-  >
-    <Provider store={store}>
-      <Fragment>
-        <Header />
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route path="/videos" component={Videos} />
-          <Route path="/contact" component={Contact} />
-          <Redirect from="/v" to="/videos" />
-          <Route path="*" render={() => <NotFound />} />
-        </Switch>
-      </Fragment>
-    </Provider>
+    basename="/">
+    <App />
   </BrowserRouter>,
   homeContainer
-)
+);
