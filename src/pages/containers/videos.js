@@ -13,6 +13,13 @@ class Videos extends Component {
   state = {
     modalVisible: false,
   }
+  componentDidMount() {
+    const search = this.props.location.search();
+    if (search) {
+      const id = search.split('=')[1];
+      this.handleOpenModal(id);
+    }
+  }
   handleOpenModal = (media) => {
     this.setState({
       modalVisible: true,
