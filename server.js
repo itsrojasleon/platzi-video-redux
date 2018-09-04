@@ -10,7 +10,7 @@ const app = express();
 app.use(express.static('dist'))
 app.use('/images', express.static('images'))
 
-app.get('/', (req, res) => {
+app.get('*', (req, res) => {
   // fetch('dame datos').then((datos)=>{
 
   // })
@@ -26,4 +26,4 @@ app.get('/', (req, res) => {
   res.end();
 })
 
-app.listen(3000)
+app.listen(3000);
